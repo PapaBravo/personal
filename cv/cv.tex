@@ -1,0 +1,203 @@
+\documentclass[%
+fontsize=11pt,%
+a4paper,%
+pagesize,%
+headinclude,footinclude,%
+headings=normal,%
+]{scrartcl}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=5cm]{geometry} % page layout
+\usepackage{scrpage2}
+\usepackage{charter}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage[german=quotes]{csquotes} 
+
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black]{hyperref}
+\urlstyle{same}
+
+\tolerance=200 % white space
+\clubpenalty = 1000 % orphans
+\widowpenalty = 1000 % widows
+
+% ===========================
+%    VARIABLES
+% ===========================
+%    must be defined, BEFORE koma-moderncvclassic is loaded!
+
+% address; not needed variables should be commented out
+\renewcommand*{\title}{Curriculum Vitae}% für PDF
+\newcommand*{\firstname}{Paul}
+\newcommand*{\familyname}{Boeck}
+\newcommand*{\acadtitle}{}%Dr.~h.\,c.~mult.
+\newcommand*{\addressstreet}{Hubertusstraße 14}
+\newcommand*{\addresscity}{D-10365 Berlin}
+\newcommand*{\address}[2]{\addressstreet{#1}\addresscity{#2}}
+%\newcommand*{\mobile}{}
+\newcommand*{\phone}{+49\,151\,157\,057\,22}
+%\newcommand*{\faxnr}{}
+\newcommand*{\email}{boeck@math.hu-berlin.de}
+\newcommand*{\extrainfo}{\href{http://www.paul-boeck.de}{\nolinkurl{www.paul-boeck.de}}}
+%\renewcommand*{\quote}{}
+
+% ===========================
+%    LENGTHS
+% ===========================
+%    must be defined, BEFORE koma-moderncvclassic is loaded!
+
+% left column width (default value: 2,79cm)
+% uncomment the \newlength-command, and uncomment and adjust one of the \set...-commands to change the default value
+% \newlength\myhintscolumnwidth
+% \settowidth\myhintscolumnwidth{Left column takes this text's width}
+% \setlength\myhintscolumnwidth{.3\textwidth}
+% \setlength\myhintscolumnwidth{5cm}
+
+
+% ===========================
+%    KOMA-MODERNCVCLASSIC
+% ===========================
+
+\usepackage[darkgray]{koma-moderncvclassic} % color theme as option; default = myblue; other predefined colors that may be used: red, green, blue, cyan, magenta, yellow, black, white, darkgray, gray, lightgray
+
+% picture
+\photo[noframe]{3cm}{CV_pic.jpg}
+% 'frame' gives a frame around the picture (=default), 'noframe' does not;
+% '3cm' is the width the picture must be resized to;
+% 'picture.jpg' is the name of the picture file
+
+
+% ===========================
+%    ADAPTIONS
+% ===========================
+%\renewcommand*{\familydefault}{\sfdefault}% default font sans-serif
+%\renewcommand*{\addressfont}{\normalsize\sffamily\mdseries\slshape}% sans-serif font for address, too
+%\renewcommand{\firstnamefont}{\fontsize{24}{26}\sffamily\mdseries\upshape} % name in smaller font
+\newcommand*{\totalpagemark}{\usekomafont{pagenumber}\thepage/\pageref{lastpage}}% for page and pagetotal
+
+%C++ Symbol
+\def\CPP{{C\kern-.05em\raise.23ex\hbox{+$\!$\kern-.05em+}}}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=0pt,label={},noitemsep}
+ 
+% ===========================
+%    HEAD- AND FOOTLINES
+% ===========================
+\pagestyle{scrheadings}
+\clearscrheadfoot
+\ifoot{CV~\firstname~\familyname}
+\ofoot{\totalpagemark}
+%\ihead{}
+%\ohead{}
+
+% ===========================
+%    BIBLIOGRAPHY
+% ===========================
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{cv.bib}
+\defbibheading{bibliography}[Veröffentlichungen]{\section{#1}}
+
+\defbibenvironment{bibliography}
+{\list
+	{}
+	{\setlength{\leftmargin}{\hintscolumnwidth}%
+		\addtolength{\leftmargin}{\separatorcolumnwidth}%
+		\addtolength{\leftmargin}{\bibhang}%
+		\setlength{\itemindent}{-\bibhang}%
+		\setlength{\itemsep}{\bibitemsep}%
+		\setlength{\parsep}{\bibparsep}}}
+{\endlist}
+{\item}
+
+% ==================================================================
+%       DOCUMENT
+% ==================================================================
+
+\begin{document}
+%\cventry{}{}{}{}{}{}
+%\cventry{years}{degree/jobtitle}{institution/employer}{localization}{optional: grade/...}{optional: comment/job description}
+%\cvlanguage{name}{level}{comment}%3 columns, right-most is ragged right and small. middle is fat.
+%\cvcomputer{category}{programs}{category}{programs} %2 column layout. each has one fat item
+
+\maketitle
+
+\section{Persönliche Daten}
+\cvline{Geboren am}{29.08.1987}
+\cvline{Nationalität}{Deutsch}
+
+\section{Ausbildung}
+%\subsection{Schools}
+\cventry{09.2010 - 06.2011}{Erasmus}{University of Edinburgh}{}{}{}
+\cventry{09.2008 - 07.2014}{Mathematik Diplom}{Humboldt-Universität zu Berlin}{}{(Note 1.7)}{}
+\cventry{07.2007 - 03.2008}{Grundwehrdienst}{Münster}{}{}{}
+%\subsection{University}
+\cventry{08.2000 - 07.2007}{Abitur}{Alexander-von-Humboldt Gymnasium Berlin}{}{(Note 1.6)}{}
+\subsection{Sprachen}
+\cventry{}{Deutsch}{Muttersprache}{}{}{}
+\cventry{}{Englisch}{verhandlungssicher}{Ein Jahr Studium in Edinburgh}{}{}
+\cventry{}{Französisch}{Grundkenntnisse}{5 Jahre Schule}{}{}
+\section{Fähigkeiten}
+
+\cventry{Programmier\-sprachen}{Java, \CPP, Delphi, Matlab, SQL, PHP, LaTeX}{}{}{}{}
+\cventry{Software}{MS Windows, MS Office, Linux, Git, Mathematica}{}{}{}{}
+\cventry{Forschungs\-interessen}{Optimierung, Modellierung, ODEs, Geodaten, Big Data}{}{}{}{}
+
+\section{Arbeitserfahrung}
+\cventry{08.2014 - \hphantom{09.2014}}{Wissenschaftliche Aushilfe}{Deutsches Zentrum für Luft- und Raumfahrt, Institut für Verkehrsforschung}{}{}{
+\begin{itemize}
+	\item Ich arbeite an der Implementierung des Verkehrsmodells und Auswertung von Simulationsergebnissen.
+\end{itemize}
+}
+\cventry{10.2012 - 07.2014}{Studentische Hilfskraft}{Deutsches Zentrum für Luft- und Raumfahrt, Institut für Verkehrsforschung}{}{}{
+\begin{itemize}
+	\item Ich unterstützte das Verkehrsmodellierungsteam, indem ich Werkzeuge zur Analyse von Resultaten entwickelte (Java, SQL, GIS) und bei der Datenaufbereitung half.
+\end{itemize}
+}
+\cventry{05.2013 - 10.2013}{Studentische Hilfskraft}{Humboldt-Universität zu Berlin, Institut für Mathematik}{}{}{
+\begin{itemize}
+	\item Ich habe das Tutorium für den Kurs \emph{Computer-orientierte Mathematik} geleitet. Das beinhaltete unter anderem, Aufgaben und Klausuren zu erstellen und korrigieren, sowie Vorlesungen und kleinere Gruppenvorträge zu geben.
+\end{itemize}
+}
+\cventry{09.2011 - 09.2012}{Studentische Hilfskraft}{Humboldt-Universität zu Berlin, Department for Computational Mathematics}{}{}{
+\begin{itemize}
+	\item Ich habe der Arbeitsgruppe bei der Forschung zu FEM (Matlab) und bei der Lehre unterstützt.
+\end{itemize}
+}
+\cventry{03.2010 - 08.2010}{Studentische Hilfskraft}{ZIB - Zuse Institut Berlin, Abteilung Visualisierung und Datenanalyse}{}{}{
+\begin{itemize}
+	\item Ich habe zu 3D-Visualisierung geforscht (Korrespondenzproblem mit MDS, Matlab, \CPP).
+\end{itemize}
+}
+%%latex?
+\cventry{04.2008 - 10.2009}{Programmierer}{MES - Medien Elektronik Software}{}{}{
+\begin{itemize}
+	\item Ich habe ein internes Werkzeug zur Lizenzverwaltung entwickelt (SQL-Datenbank mit Delphi-Frontend).
+	\item HTML-Export für Audio und Video aus deren Produkt heraus
+	\item Ein weiteres Projekt war die Analyse eines Produktes einer anderen Firma (Matrox Video Karte) für den zukünftigen Gebrauch.
+\end{itemize}
+}
+
+\section{Forschung}
+\cventry{03.2013}{GAMM}{Numerical Integration of Lipschitzian ODEs}{}{}{
+Ich habe an der der GAMM 2013 (Gesellschaft für Angewandte Mathematik und Mechanik) teilgenommen und einen Vortrag mit dem gegebenen Titel gehalten.}
+\cventry{05.2014}{Diplomarbeit}{Implementation and Application of the Generalized Midpoint Rule for Lipschitzean ODEs}{}{}{Über das Lösen von gewöhnlichen Differentialgleichungen (mit nicht-glatter rechter Seite) mit Hilfe von automatischer Differenzierung. Der praktische Teil war eine \CPP Bibliothek, die diese Aufgaben erfüllt.}
+
+
+\section{Sonstiges}
+\cventry{}{Couch Surfing}{}{}{}{Ich war aktives Mitglied und Organizer der Couch Surfing Gemeinschaft in Edinburgh. Das beinhaltete Hilfe für internationale Besucher und das Organisieren von Veranstaltungen.
+}
+\cventry{}{Nachhilfe}{}{}{}{
+\begin{itemize}
+	\item Um meine Begeisterung am Fach Mathematik an andere weiter zu vermitteln, habe ich in Edinburgh Nachhilfe an einem Internat gegeben.
+	\item Während meiner gesamten Studienzeit habe ich vielen Kommilitonen mit Rat und Tat zur Seite gestanden, wenn es um technologische Aspekte des Studiums ging, etwa Programmieren, LaTeX oder Zugriffe auf die Infrastruktur der Uni.
+\end{itemize}
+}
+\cventry{}{Wandern}{}{}{}{Als Ausgleich für meinen Technik-fokussierten Alltag verlasse ich die Zivilisation mindestens einmal im Jahr um mit Zelt und Rucksack in den Bergen wandern zu gehen.
+}
+
+\nocite{*}
+\printbibliography
+
+\label{lastpage}% needed for computing pagetotal
+\end{document}
